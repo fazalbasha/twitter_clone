@@ -17,10 +17,17 @@
   <p style="margin-left:50px">
     <%= tweet.body %>
   </p>
+
   <ul class="list-inline" style="margin-left:50px">
-    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-    </li>
+    <% if user_signed_in? %>
+    <div id="tweet-retweet">
+      <% if retweeted?(tweet) %>
+        <%= render 'retweets/unretweet', tweet: tweet %>
+      <% else %>
+        <%= render 'retweets/retweet', tweet: tweet %>
+      <% end %>
+    </div>
+    <%end%>
   </ul>
 </div>
 
