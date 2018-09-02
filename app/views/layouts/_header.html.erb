@@ -31,7 +31,7 @@
               <ul class="dropdown-menu">
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="<%= user_path(current_user) %>" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="<%= destroy_user_session_path %>" data-method="delete" class="btn btn-default btn-flat">

@@ -69,3 +69,9 @@ gem 'devise'
 
 # an irb alternative and runtime development console
 gem 'pry'
+
+# follow/unfollow
+gem "acts_as_follower", github: "tcocca/acts_as_follower"
+
+# to create pretty URL’s
+gem 'friendly_id', '~> 5.2.0'

@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
+    @user = User.friendly.find(current_user.id) if current_user
     @tweet = Tweet.new
     @tweets = Tweet.order(created_at: 'desc').all
   end

@@ -7,4 +7,10 @@ class User < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
   has_many :re_tweets, dependent: :destroy
+
+  acts_as_followable
+  acts_as_follower
+
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 end

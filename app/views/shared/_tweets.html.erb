@@ -1,0 +1,16 @@
+<div class="col-md-6">
+  <div class="nav-tabs-custom" style="background-color: aliceblue;">
+    <%= render 'shared/tweet_form' if params[:action] == 'index' %>
+    <div class="tab-content">
+      <div class="active tab-pane">
+        <div id="tweets-list">
+          <% @tweets.each do |tweet| %>
+            <div id="tweet-<%= tweet.id %>">
+              <%= render 'tweets/tweet', tweet: tweet %>
+            </div>
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

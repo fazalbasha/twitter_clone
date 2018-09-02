@@ -1,0 +1,9 @@
+<%  if current_user %>
+<ul class="nav nav-tabs" style="min-height:60px">
+  <div class="col-md-12">
+    <div class="box-footer">
+      <%= render 'tweets/form', tweet: @tweet %>
+    </div>
+  </div>
+</ul>
+<% end %>

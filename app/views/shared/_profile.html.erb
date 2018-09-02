@@ -1,0 +1,33 @@
+<div class="col-md-3">
+  <div class="box box-widget widget-user">
+    <div class="widget-user-header bg-aqua-active">
+      <h3 class="widget-user-username"><%= @user.name.capitalize %></h3>
+      <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+    </div>
+    <div class="widget-user-image">
+      <img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+    </div>
+    <div class="box-footer">
+      <div class="row">
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Tweets</h5>
+            <span class="description-text"><%= @user.tweets.length %></span>
+          </div>
+        </div>
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Following</h5>
+            <span class="description-text"><%= @user.follow_count %></span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="description-block">
+            <h5 class="description-header">Followers</h5>
+            <span class="description-text"><%= @user.followers.length %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
