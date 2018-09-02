@@ -16,3 +16,4 @@
 //= require jquery.min
 //= require bootstrap.min
 //= require adminlte.min
+//= require autosize.min

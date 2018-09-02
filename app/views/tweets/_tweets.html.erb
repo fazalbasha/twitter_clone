@@ -1,0 +1,26 @@
+<% @tweets.each do |tweet| %>
+  <div class="post">
+    <div class="user-block">
+      <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
+      <span class="username">
+        <a href="#"><%= tweet.user.name %></a>
+        <span class="dropdown pull-right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">  <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" data-toggle="modal" data-target="#modal-default"  >Edit Tweet</a></li>
+            <li><a href="#">Delete Tweet</a></li>
+          </ul>
+        </span>
+      </span>
+      <span class="description">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-l:%M %p %-d %b %Y") %></span>
+    </div>
+    <p style="margin-left:50px">
+      <%= tweet.body %>
+    </p>
+    <ul class="list-inline" style="margin-left:50px">
+      <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+      <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+      </li>
+    </ul>
+  </div>
+<% end %>

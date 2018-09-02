@@ -1,0 +1,56 @@
+<header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/tweets" class="navbar-brand"><b>Twitter</b></a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/tweets">Tweets <span class="sr-only">(current)</span></a></li>
+            <li><a href="javascript:void(0)">Messages</a></li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
+            </div>
+          </form>
+        </div>
+
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <% if current_user %>
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="<%= destroy_user_session_path %>" data-method="delete" class="btn btn-default btn-flat">
+                      <i class="fa fa-sign-out"> Log out</i>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <% else %>
+            <li class="">
+              <a href="<%= new_user_session_path %>" ><i class="fa fa-sign-in"> Log in</i></a>
+            </li>
+            <li class="">
+              <a href="<%= new_user_registration_path %>" ><i class="fa fa-sign-in"> Sign up</i></a>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
