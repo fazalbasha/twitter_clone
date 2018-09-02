@@ -30,4 +30,23 @@
       </div>
     </div>
   </div>
+
+<% if user_signed_in? %>
+  <div id="follow-user">
+    <% if current_user.following?(@user) %>
+      <%= render 'users/unfollow', user: @user %>
+    <% else %>
+      <%= render 'users/follow', user: @user %>
+    <% end %>
+  </div>
+  <%end%>
 </div>
+
+<style type="text/css">
+.btn-outline {
+    border: 1px solid #00c0ef;
+    background: #ba171700;
+    color: #00c0ef;
+    font-weight: 600;
+}
+</style>

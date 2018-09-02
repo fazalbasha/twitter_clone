@@ -71,7 +71,7 @@ gem 'devise'
 gem 'pry'
 
 # follow/unfollow
-gem "acts_as_follower", github: "tcocca/acts_as_follower"
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # to create pretty URL’s
 gem 'friendly_id', '~> 5.2.0'

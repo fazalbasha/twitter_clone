@@ -3,7 +3,7 @@
   <div class="user-block">
     <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
     <span class="username">
-      <a href="#"><%= tweet.user.name %></a>
+      <a href="<%= user_path(tweet.user.slug) %>"><%= tweet.user.name %></a>
       <span class="dropdown pull-right">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">  <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -24,9 +24,7 @@
   </ul>
 </div>
 
-<div id="tweet-edit-modal">
-
-</div>
+<div id="tweet-edit-modal"></div>
 
 <script type="text/javascript">
   // updating function

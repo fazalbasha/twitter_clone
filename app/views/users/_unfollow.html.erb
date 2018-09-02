@@ -1,0 +1,3 @@
+<%= form_with(url: unfollow_user_path(user), html: { id: "unfollow-form", remote: true, method: :delete }) do |form| %>
+  <button type="submit" class="btn btn-block btn-info btn-outline">Following </button>
+<% end %>
