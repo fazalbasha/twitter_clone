@@ -55,7 +55,13 @@
       <% end %>
       <div class="tab-content">
         <div class="active tab-pane">
-          <%= render 'tweets' %>
+          <div id="tweets-list">
+            <% @tweets.each do |tweet| %>
+              <div id="tweet-<%= tweet.id %>">
+                <%= render 'tweet', tweet: tweet %>
+              </div>
+            <% end %>
+        </div>
         </div>
       </div>
     </div>

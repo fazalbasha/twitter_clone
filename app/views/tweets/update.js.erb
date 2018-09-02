@@ -1,0 +1,4 @@
+
+$('#tweet-<%= @tweet.id %>').html('<%= escape_javascript render partial: 'tweet', locals: { tweet: @tweet } %>')
+$('#modal-default').modal('toggle');
+$('.modal-backdrop').hide();

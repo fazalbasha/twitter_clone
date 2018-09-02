@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: 'desc').all
   end
 
   # GET /tweets/1
@@ -20,6 +20,9 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1/edit
   def edit
+    respond_to do |format|
+      format.js { render layout: false }
+    end
   end
 
   # POST /tweets
@@ -29,8 +32,9 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
+        format.js { render layout: false }
         format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
+        format.json { render json: @tweet, status: :created, location: @tweet }
       else
         format.html { render :new }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
@@ -43,6 +47,7 @@ class TweetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
+        format.js { render layout: false }
         format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
         format.json { render :show, status: :ok, location: @tweet }
       else
