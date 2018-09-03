@@ -3,7 +3,7 @@
     <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
     <span class="username">
       <a href="<%= user_path(tweet.user.slug) %>"><%= tweet.user.name %></a>
-      <%= render 'tweets/actions', tweet: tweet if user_signed_in? %>
+      <%= render 'tweets/actions', tweet: tweet if user_signed_in? && current_user == tweet.user %>
     </span>
     <span class="description">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-l:%M %p %-d %b %Y") %></span>
   </div>

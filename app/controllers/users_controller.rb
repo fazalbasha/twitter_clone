@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: :show
   before_action :set_user, only: [:show, :follow, :unfollow]
+  before_action :set_who_to_follow
 
   def show
     @user = User.friendly.find(params[:id])

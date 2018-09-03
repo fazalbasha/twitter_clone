@@ -16,5 +16,6 @@
  *= require adminlte.min
  *= require skins/_all-skins.min
  *= require blue.css
+ *= require custom
  *= require_self
  */

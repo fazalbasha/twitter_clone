@@ -1,0 +1,38 @@
+<div class="col-md-3">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title fw-fc">Who to follow</h3>
+    </div>
+    <% @who_to_follow.each do |user| %>
+    <div class="box-body">
+      <ul class="products-list product-list-in-box">
+        <li class="item">
+          <div class="product-img">
+            <img src="dist/img/default-50x50.gif" alt=" Image">
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title" style="font-size:18px"><%= user.name.capitalize %>
+            </a><span class="text-muted text-center">@<%= user.username %></span>
+            <span class="product-description">
+              <div id="follow-user">
+                <% if current_user && current_user.following?(@user) %>
+                  <%= render 'users/unfollow', user: user %>
+                <% else %>
+                  <%= render 'users/follow', user: user %>
+                <% end %>
+              </div>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<style type="text/css">
+  .fw-fc {
+    font-weight: 800;
+    color: #00c0ef !important;
+  }
+</style>
