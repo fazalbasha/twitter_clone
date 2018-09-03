@@ -12,5 +12,11 @@ class User < ApplicationRecord
   acts_as_follower
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :name, use: :slugged
+
+  before_save :set_username
+
+  def set_username
+    self.username = self.email.split('@')[0]
+  end
 end
