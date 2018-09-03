@@ -1,13 +1,18 @@
 <div class="col-md-3">
   <div class="box box-widget widget-user">
+    <% if @user == current_user %><a href="<%= edit_user_path(@user)%>" class="pull-right"><i class="fa fa-fw fa-edit" style="color:white"></i></a><% end %>
     <div class="widget-user-header bg-aqua-active">
       <h3 class="widget-user-username"><%= @user.name.capitalize %></h3>
-      <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+      <h5 class="widget-user-desc"><%= @user.title %></h5>
     </div>
     <div class="widget-user-image">
       <img class="img-circle" src="<%= url_for(@user.avatar) %>" alt="User Avatar">
     </div>
     <div class="box-footer">
+       <h5><%= @user.bio %></h5>
+       <p><i class="fa fa-map-marker margin-r-5"></i> <%= @user.location %></p>
+       <p><i class="fa fa-fw fa-calendar"></i> Joined <%= @user.created_at.strftime("%B %Y") %></p>
+    </div>
       <div class="row">
         <div class="col-sm-4 border-right">
           <div class="description-block">
@@ -28,7 +33,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 
 <% if user_signed_in? && current_user != @user %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post :retweet , on: :member
     delete :unretweet , on: :member
   end
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       post :follow
       delete :unfollow
