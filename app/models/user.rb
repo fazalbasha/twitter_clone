@@ -13,10 +13,12 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+  has_one_attached :avatar
 
   before_save :set_username
 
   def set_username
+    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.jpeg')), filename: 'default-avatar.jpeg', content_type: 'image/jpeg')
     self.username = self.email.split('@')[0]
   end
 end

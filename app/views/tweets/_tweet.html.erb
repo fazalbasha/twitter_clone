@@ -1,6 +1,6 @@
 <div class="post">
   <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
+    <img class="img-circle img-bordered-sm" src="<%= url_for(tweet.user.avatar) %>" alt="">
     <span class="username">
       <a href="<%= user_path(tweet.user.slug) %>"><%= tweet.user.name %></a>
       <%= render 'tweets/actions', tweet: tweet if user_signed_in? && current_user == tweet.user %>
@@ -8,7 +8,8 @@
     <span class="description">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-l:%M %p %-d %b %Y") %></span>
   </div>
   <p style="margin-left:50px">
-    <%= tweet.body %>
+    <span><%= tweet.body %></span>
+    <% if tweet.image.attached? %><img class="img-responsive pad-top-10" src="<%= url_for(tweet.image) %>" alt="Photo"><% end %>
   </p>
 
   <ul class="list-inline" style="margin-left:50px">

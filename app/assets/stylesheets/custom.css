@@ -4,3 +4,9 @@
     color: #00c0ef;
     font-weight: 600;
 }
+.pad-top-10 {
+  padding-top:10px
+}
+.mt-25 {
+  margin-top:-25px
+}

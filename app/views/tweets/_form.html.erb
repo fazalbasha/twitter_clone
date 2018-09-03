@@ -1,10 +1,11 @@
 <%= form_with(model: tweet, html: { id: "tweet-form", remote: true }) do |form| %>
-  <img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text">
+  <img class="img-responsive img-circle img-sm" src="..<%= url_for(current_user.avatar) %>" alt="Alt Text">
   <div class="img-push">
-    <%= form.text_area :body, class: "form-control", placeholder: "What's happening?", :size=>"50" %>
+    <%= form.text_area :body, class: "form-control", placeholder: "What's happening?", :size=>"50", required: true %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <div class="box-footer">
-      <%= form.submit 'Tweet', class: "btn btn-info btn-sm pull-right" %>
+      <%= form.file_field :image %>
+      <%= form.submit 'Tweet', class: "btn btn-info btn-sm pull-right mt-25" %>
     </div>
   </div>
 <% end %>
