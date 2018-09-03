@@ -17,3 +17,5 @@
 //= require bootstrap.min
 //= require adminlte.min
 //= require autosize.min
+//= require icheck.min
+//= require custom

@@ -15,5 +15,6 @@
  *= require ionicons.min
  *= require adminlte.min
  *= require skins/_all-skins.min
+ *= require blue.css
  *= require_self
  */

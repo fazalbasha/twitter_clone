@@ -1,16 +1,9 @@
-
 <div class="post">
   <div class="user-block">
     <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="">
     <span class="username">
       <a href="<%= user_path(tweet.user.slug) %>"><%= tweet.user.name %></a>
-      <span class="dropdown pull-right">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">  <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="javascript:void(0)" onclick="openEditForm(<%= tweet.id %>)">Edit Tweet</a></li>
-          <li><a href="javascript:void(0)" onclick="deleteTweet(<%= tweet.id %>)">Delete Tweet</a></li>
-        </ul>
-      </span>
+      <%= render 'tweets/actions', tweet: tweet if user_signed_in? %>
     </span>
     <span class="description">@<%= tweet.user.username %> - <%= tweet.created_at.strftime("%-l:%M %p %-d %b %Y") %></span>
   </div>
@@ -22,40 +15,15 @@
     <% if user_signed_in? %>
     <div id="tweet-retweet">
       <% if retweeted?(tweet) %>
-        <%= render 'retweets/unretweet', tweet: tweet %>
+      <%= render 'retweets/unretweet', tweet: tweet %>
       <% else %>
-        <%= render 'retweets/retweet', tweet: tweet %>
+      <%= render 'retweets/retweet', tweet: tweet %>
       <% end %>
     </div>
+    <% else %>
+      <i class="fa fa-retweet margin-r-5"></i> <span class="text-sm"><%= tweet.retweets_count %></span>
     <%end%>
   </ul>
 </div>
 
 <div id="tweet-edit-modal"></div>
-
-<script type="text/javascript">
-  // updating function
-  function openEditForm(tweet_id) {
-    $.ajax({
-      type: "GET",
-      dataType: 'script',
-      url: "/tweets/"+tweet_id+"/edit"
-    });
-  }
-
-  // delete function
-  function deleteTweet(tweet_id) {
-    if(confirm("Are you sure?")){
-      $.ajax({
-        type: "DELETE",
-        dataType: 'script',
-        headers: {
-          'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
-        },
-        url: "/tweets/"+tweet_id
-      });
-    }else{
-      return false
-    }
-  }
-</script>
