@@ -75,3 +75,6 @@ gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # to create pretty URL’s
 gem 'friendly_id', '~> 5.2.0'
+
+# to seed data
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'

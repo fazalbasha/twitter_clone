@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/stympy/faker.git
+  revision: c3aa4cc71e930a7ea8cfe8091f10cd7d22537e63
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
+GIT
   remote: https://github.com/tcocca/acts_as_follower.git
   revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
   branch: master
@@ -233,6 +241,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  faker!
   friendly_id (~> 5.2.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
