@@ -11,7 +11,7 @@
             <img src="<%= url_for(user.avatar) %>" alt=" Image">
           </div>
           <div class="product-info">
-            <a href="javascript:void(0)" class="product-title" style="font-size:18px"><%= user.name.capitalize %>
+            <a href="<%= user_path(user.slug) %>" class="product-title" style="font-size:18px"><%= user.name.capitalize %>
             </a><span class="text-muted text-center">@<%= user.username %></span>
             <span class="product-description">
               <div id="follow-user">
