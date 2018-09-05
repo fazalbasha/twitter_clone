@@ -17,10 +17,10 @@ class User < ApplicationRecord
 
   scope :all_except, ->(user) { where.not(id: user) }
 
-  before_save :set_username
+  before_create :set_username
 
   def set_username
-    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.jpeg')), filename: 'default-avatar.jpeg', content_type: 'image/jpeg')
+    self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-profile.png')), filename: 'default-profile.png', content_type: 'image/png')
     self.username = self.email.split('@')[0]
   end
 end
