@@ -1,13 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :retweet, :unretweet]
-
-  # GET /tweets
-  # GET /tweets.json
-  def index
-    @user = User.friendly.find(current_user.id) if current_user
-    @tweet = Tweet.new
-    @tweets = Tweet.includes(:user).order(created_at: 'desc')
-  end
+  before_action :set_tweet, only: [ :show, :edit, :update, :destroy, :retweet, :unretweet ]
 
   # GET /tweets/1
   # GET /tweets/1.json
@@ -69,12 +61,16 @@ class TweetsController < ApplicationController
   end
 
   def retweet
-    @tweet.re_tweets.create(user_id: current_user.id)
+    @tweet.re_tweets.create(
+      user_id: current_user.id
+    )
     respond_to :js
   end
 
   def unretweet
-    @retweet = @tweet.re_tweets.find_by(user_id: current_user.id)
+    @retweet = @tweet.re_tweets.find_by(
+      user_id: current_user.id
+    )
     @retweet.destroy
     respond_to :js
   end

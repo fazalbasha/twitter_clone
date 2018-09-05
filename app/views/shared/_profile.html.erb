@@ -36,7 +36,7 @@
   </div>
 
 <% if user_signed_in? && current_user != @user %>
-  <div id="follow-user">
+  <div id="follow-user-<%= @user.id %>">
     <% if current_user.following?(@user) %>
       <%= render 'users/unfollow', user: @user %>
     <% else %>

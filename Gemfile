@@ -78,3 +78,12 @@ gem 'friendly_id', '~> 5.2.0'
 
 # to seed data
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+# to add infinite scrolling pagination
+gem 'kaminari'
+
+# For authorization
+gem "pundit"
+
+# to audit or versioning 
+gem 'paper_trail'

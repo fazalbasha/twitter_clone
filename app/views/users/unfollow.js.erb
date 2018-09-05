@@ -1,1 +1,1 @@
-$('#follow-user').html('<%= escape_javascript render partial: 'users/follow', locals: { user: @user } %>')
+$('#follow-user-<%= @user.id %>').html('<%= escape_javascript render partial: 'users/follow', locals: { user: @user } %>')
