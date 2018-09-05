@@ -15,6 +15,8 @@ class User < ApplicationRecord
   friendly_id :name, use: :slugged
   has_one_attached :avatar
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
   before_save :set_username
 
   def set_username

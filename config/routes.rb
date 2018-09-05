@@ -14,4 +14,8 @@ Rails.application.routes.draw do
       delete :unfollow
     end
   end
+  resources :conversations, only: :index do
+    get '/open_chat' => "conversations#open_chat", :on => :collection
+    post '/do_chat' => "conversations#do_chat"
+  end
 end

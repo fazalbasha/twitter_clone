@@ -1,0 +1,24 @@
+<div class="box-body chat">
+  <div class="only-messages">
+  <% if messages.present? %>
+    <% messages.each do |message| %>
+      <div class="item message-<%= message.id %>">
+        <%= render 'message', message: message %>
+      </div>
+    <% end %>
+    <% else %>
+     <div class="beginning"><h4>This is the very beginning of your direct message with <span style="color:#31b0d5"><%= @conversation.receiver.name %></span></h4></div>
+    <% end %>
+ </div>
+</div>
+<div class="box-footer">
+  <%= form_with(url: conversation_do_chat_path(@conversation), html: { id: 'chat-boxx', remote: true }) do |form| %>
+  <div class="input-group">
+    <input name="message" class="form-control" placeholder="Type message...">
+    <div class="input-group-btn">
+      <%= form.submit 'Send', class: "btn btn-info"%>
+    </div>
+  </div>
+  <% end %>
+
+</div>

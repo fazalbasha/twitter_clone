@@ -18,4 +18,5 @@
 //= require adminlte.min
 //= require autosize.min
 //= require icheck.min
+//= require select2.min
 //= require custom

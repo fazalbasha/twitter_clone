@@ -1,0 +1,8 @@
+<img src="<%= url_for(message.user.avatar) %>" alt="image" class="online">
+<p class="message">
+  <a href="#" class="name">
+    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> <%= message.created_at.strftime("%-l:%M %P")%></small>
+    <%= message.user.name %>
+  </a>
+  <%= message.body %>
+</p>
